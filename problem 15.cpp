@@ -1,11 +1,9 @@
 #include <iostream>
 using namespace std;
 
-
-
-
 int main(){
-    int i,x,temp,j=1,asordes;
+    int i,x,temp,j=1;
+	char asordes;
     int number[20],ascendorder[20],descendorder[20],origorder[20];
     cout << "Enter 20 number"<< endl;
 
@@ -25,14 +23,14 @@ int main(){
 	cout << "\"A\" for ascending order and \" D\" for descending order:";
 	cin >> asordes;
 
-	if (asordes =='A')
-	{
+	if (asordes == 'A'){
+		
 		 //ascending order
     	for(i=0;i<20;i++){
 
 			for(j=i+1;j<20;j++){
 
-				if(number[i]>number[j]){
+				if(number[i] > number[j]){
 					
 					temp =number[i];
 					number[i]=number[j];
@@ -41,7 +39,7 @@ int main(){
 				}
 			}
 		}
-	}else{
+	}else if(asordes == 'D') {
 		//descending order
     	for(i=0;i<20;i++)
 		{		
@@ -49,7 +47,7 @@ int main(){
 			{
 				if(number[i] < number[j])
 				{
-					temp =number[i];
+					temp = number[i];
 					number[i]=number[j];
 					number[j]=temp;
                 
@@ -59,10 +57,10 @@ int main(){
 
 	}
 
-    cout << "\tOriginal Order\t\t Sorted Order" << endl;
+    cout << "\tOriginal Order\t\t\tSorted Order" << endl;
     for(int i = 0; i < 20; i++){
         
-        cout << "\t\t" << origorder[i] <<"\t\t\t" <<number[i] << endl;
+        cout << "\t\t" << origorder[i] <<"\t\t\t     " <<number[i] << endl;
     }
 	
     return 0;
