@@ -12,12 +12,16 @@ int main(){
     cout << "Enter your entrance examination score:";
     cin >> examscore;
 
+    //rejected if any of the following exist
     if (NSATscore < 90 || salary > 10000 || examscore < 85){
         cout << "\t\t Rejected" << endl;
-    }else if(salary <= 3500 || average > 91){
+
+    //accepted if all the following
+    }else if(salary <= 3500 && average > 91){
         cout << "\t\t Accepted" << endl;
+    //if met one condition
     }else{
-        cout << "\t Need to further study the application" << endl ;
+        cout << "\n\t Need to further study the application" << endl ;
     }   
     
     return 0;
