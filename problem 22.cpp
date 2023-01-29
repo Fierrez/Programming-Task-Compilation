@@ -1,12 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-  
+int main(){
     int num, result;
-    
-    
+
     cout << "Enter an integer: ";
     cin>>num;
     
@@ -19,6 +16,7 @@ int main()
         }
     }
 
+
     if (result == 2){
 
        cout << num << " is a Prime number." << endl;
@@ -27,7 +25,6 @@ int main()
 
          cout << num <<" is not a Prime number." << endl; 
     }
-
 
     return 0;    
 }
