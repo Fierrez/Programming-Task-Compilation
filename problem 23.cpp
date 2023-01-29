@@ -2,27 +2,27 @@
 using namespace std;
 
 int main(){
-    int num, largest=0, smallest=0;
+    int num, i, largest, smallest;    
 
-    cout << "Enter 10 numbers " << endl;
-
-    for(int x = 0; x < 10; x++){
-        
-        cout << "Enter number " << x+1 << ":";
+    cout << "Enter 10 numbers"<< endl;
+    
+    for(i = 0; i < 10; i++){
+        cout << "Enter number " << i+1 << ":";
         cin >> num;
         
-        if(num > largest)
-        {
+        if(num > largest){
+
             largest = num;
         }
-        if(num < smallest)
-        {
+        if(num < smallest){
+
             smallest = num;
         }
-        
+    
     }
-    cout << "The largest number is "<< largest << endl;
+
+    cout << "The largest number is " << largest << endl;
     cout << "The smallest number is " << smallest << endl;
 
     return 0;
-}   
+}
