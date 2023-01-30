@@ -1,46 +1,67 @@
-#include<iostream>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
+int main() {
+    int salesman1_sales = 0, salesman2_sales = 0, salesman3_sales = 0;
+    int total_sales = 0;
+    int highest_sales = 0;
+    int highest_salesman=0;
 
+    // Input sales amount and salesman code for 15 sales transactions
+    for (int i = 0; i < 15; i++) {
+        int sales_amount, salesman_code;
+        cout << "Enter the sales amount and salesman code for sale #" << i+1 << ": ";
+        cin >> sales_amount >> salesman_code;
 
-int main (){
-    int salesamount,salescode,totalsalseman1,totalsalesman2,totalsalesman3;
-    int salesman1[15],salesman2[15],salesman3[15];
-
-
-    for ( int i=1; i<=15;i++){
-        cout << "Enter sales amount and code of salesman:";
-        cin >> salesamount;
-        cin >> salescode;
-
-        if (salesamount < 1000 || salesamount > 99999 || salescode < 1 || salescode > 3){
-            cout << "INVALID ENTRY!\n";
-            cout << "Enter sales amount and code of salesman:";
-            cin >> salesamount;
-            cin >> salescode; 
-        }else if(salescode == 1){
-            cin >> salesman1[i];
-
-        }else if (salescode == 2){
-            cin >> salesman2[i];
-
-        }else if (salescode == 3){
-            cin >> salesman2[i];
-
+        // check if invalid
+        while (sales_amount < 1000 || sales_amount > 99999 || salesman_code < 1 || salesman_code > 3) {
+            cout << "INVALID ENTRY!" << endl;
+            cout << "Enter the sales amount and salesman code for sale #" << i+1 << ": ";
+            cin >> sales_amount >> salesman_code;
         }
 
+        // Update the sales totals for the corresponding salesman
+        if (salesman_code == 1) {
+            salesman1_sales += sales_amount;
+        } else if (salesman_code == 2) {
+            salesman2_sales += sales_amount;
+        } else if (salesman_code == 3) {
+            salesman3_sales += sales_amount;
+        }
+
+        // Update the total sales for the month
+        total_sales += sales_amount;
+
+        if(salesman1_sales >salesman2_sales && salesman1_sales > salesman3_sales){
+            highest_salesman = 1;
+        }else if(salesman2_sales > salesman1_sales && salesman2_sales > salesman3_sales){
+            highest_salesman = 2;
+
+        }else{
+            highest_salesman = 3;
+        }
+
+        /*// Update the highest sales and salesman number if necessary
+        if (sales_amount > highest_sales) {
+            highest_sales = sales_amount;
+            highest_salesman = salesman_code;
+        }*/
     }
-    for (int c = 0; c < 15; c++)
-    {
-        totalsalseman1+=salesman1[c];
-        totalsalesman2 += salesman2[c];
-        totalsalesman3 += salesman3[c];
-    }
-    
-    
-    cout << "\t\t\tJCM ENTERPRISES\n";
-    cout << "TOTAL SALES FOR THE MONTH OF JULY\n\n";
-    cout << "SALESMAN 1:" << totalsalseman1 << endl;
-    cout << "SALESMAN 2:" << totalsalesman2 << endl;
-    cout << "SALESMAN 3:" << totalsalesman3 << endl;
+
+    // Output the results
+    cout << fixed << setprecision(2);
+    cout << "JMC ENTERPRISES" << endl;
+    cout << "TOTAL SALES FOR THE MONTH OF JULY" << endl;
+    cout << endl;
+    cout << "SALESMAN 1: $" << salesman1_sales << endl;
+    cout << "SALESMAN 2: $" << salesman2_sales << endl;
+    cout << "SALESMAN 3: $" << salesman3_sales << endl;
+    cout << "-------------------------" << endl;
+    cout << "TOTAL: $" << total_sales << endl;
+    cout << endl;
+    cout << "SALESMAN WITH THE HIGHEST SALES: " << highest_salesman << endl;
+
+ 
+    return 0;
 }
